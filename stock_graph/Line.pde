@@ -1,35 +1,36 @@
 class Line {
-  float x, y, xsize, ysize;
   ArrayList<PVector> points;
   Stock stock;
   float maxValue;
   float scale;
+  Graph graph;
+  boolean drawn;
   
-  Line (float a, float b, float c, float d, Stock e) {
-    this.x = a;
-    this.y = b;
-    this.xsize = c;
-    this.ysize = d;
+  Line (Stock e) {
     this.scale = 20;
     this.maxValue = 100;
     this.stock = e;
     this.points = new ArrayList<PVector>();
+    this.drawn = true;
   }
   
   void updateStock() {
-      this.points.add(new PVector(xsize, ysize-(this.stock.value*(this.ysize/this.maxValue))));
+      this.points.add(new PVector(graph.xsize, graph.ysize-(this.stock.value*(this.graph.ysize/this.maxValue))));
   }
   
   void updateLine() {
     for (PVector a : this.points) {
-      if (a.x < this.x) {
+      if (a.x < graph.x) {
         points.remove(a.x);
         println("e");
       }
-      a.x -= xsize/scale;
+      a.x -= graph.xsize/scale;
     }
   }
   
+  void hide() {
+    this.drawn = false;
+  }
   
   void drawLine() {
     fill(stock.colour);

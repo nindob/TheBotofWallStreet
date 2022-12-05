@@ -5,16 +5,18 @@ color blue = color(0, 0, 255);
 Stock a = new Stock(50, red);
 Stock b = new Stock(25, blue);
 Stock c = new Stock(75, green);
-Line al = new Line(50, 50, 650, 650, a);
-Line bl = new Line(50, 50, 650, 650, b);
-Line cl = new Line(50, 50, 650, 650, c);
-Graph graph = new Graph();
+Line al = new Line(a);
+Line bl = new Line(b);
+Line cl = new Line(c);
+Graph graph = new Graph(100,100,700,700);
 void setup() {
   size(800, 700);
   frameRate(1);
   graph.addLine(al);
   graph.addLine(bl);
   graph.addLine(cl);
+  bl.hide();
+  cl.hide();
 }
 
 void draw() {
