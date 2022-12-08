@@ -22,7 +22,6 @@ class Line {
     for (PVector a : this.points) {
       if (a.x < graph.x) {
         points.remove(a.x);
-        println("e");
       }
       a.x -= graph.xsize/scale;
     }
@@ -37,12 +36,17 @@ class Line {
     stroke(stock.colour);
     strokeWeight(2);
     for (PVector a : points) {
-      circle(a.x, a.y, 1);
-      if (points.indexOf(a) > 0) {
-        PVector b = this.points.get(points.indexOf(a) - 1);
-        line(b.x, b.y, a.x, a.y);
+      if (a.x > graph.x){
+        circle(a.x, a.y, 1);
+        if (points.indexOf(a) > 0) {
+          PVector b = this.points.get(points.indexOf(a) - 1);
+          line(b.x, b.y, a.x, a.y);
+        }
       }
     }
-   // println(points);
+  }
+  
+  float getValue(int a) {
+    return this.points.get(a).y;
   }
 }

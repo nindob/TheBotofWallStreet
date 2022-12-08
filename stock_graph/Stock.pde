@@ -6,6 +6,6 @@ class Stock{
     colour = c;
   }
   void updateValue() {
-    value = random(0, 100);
+    value += random(-5, 5);
   }
 }
