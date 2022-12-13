@@ -1,35 +1,18 @@
 //Bot class
 class Bot {
  //Fields
- float[] values = new float[5];
- int[] time = new int[5];
  float[] slopes = new float[5];
  float slope;
  float avgSlope;
- float addPrice;
  Boolean want;
- float riskFactor;
- Boolean blueChip;
- Boolean pennyStock;
  
  
  float botX;
  float botY;
  
- Bot(float v, int t, float Ss, float s, float aS, float aP, Boolean w, float r, Boolean b, Boolean p, float x, float y) {
-   this.values[4] = v;
-   this.values[4] = t;
-   this.values[4] = Ss;
-   this.slope = s;
-   this.avgSlope = aS;
-   this.addPrice = 0;
-   this.want = w;
-   this.riskFactor = r;
-   this.blueChip = b;
-   this.pennyStock = p;
-   
-   this.botX = 50;
-   this.botY = 50;
+ Bot(float x, float y) {
+   this.botX = x;
+   this.botY = y;
  }
  
  void checkRisk() {
@@ -44,7 +27,7 @@ class Bot {
  }
  
  void drawBot() {
-   image(robot, 700, 600, 100, 100);
+   image(robot, this.botX, this.botY, 100, 100);
  }
  
  void checkStock(Line a) {
@@ -65,14 +48,14 @@ class Bot {
     println("The investor wants to invest");
     fill(0);
     textAlign(RIGHT);
-    text("This stock is a good investment", 730, 650);
+    text("This stock is a good investment", 720, 650);
    }
    else {
     want = false;
     println("the investor does not want to invest");
     fill(0);
     textAlign(RIGHT);
-    text("This stock is a bad investment", 730, 650);
+    text("This stock is a bad investment", 720, 650);
    }
  }
 }

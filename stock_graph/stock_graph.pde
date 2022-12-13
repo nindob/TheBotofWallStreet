@@ -3,17 +3,25 @@ color green = color(0, 255, 0);
 color blue = color(0, 0, 255);
 PImage robot;
 PFont myFont;
+float InflationRate;
+float EmployeeTreatmentQuality;
+float InterestRates;
+float VolatilityIndex;
+float initialValue;
+float scale;
+boolean BullMarket;
 
-Stock a = new Stock(50, red, 0, 0, 0, 1, 0);
-Line al = new Line(a);
-Graph graph = new Graph(100,100,700,600, 200);
-Bot tbows = new Bot(5, 5, 5, 5, 0, 5, false, 5, false, false, 5, 5);
+Stock a;
+Line al;
+Graph graph;
+Bot tbows;
 void setup() {
   robot = loadImage("images.png");
   myFont = createFont("arial", 15);
   size(800, 700);
   frameRate(1);
   graph.addLine(al);
+  reset();
 }
 
 void draw() {
@@ -25,4 +33,11 @@ void draw() {
   tbows.checkStock(al);
   tbows.checkRisk();
   tbows.invest();
+}
+
+void reset() {
+  a = new Stock(initialValue, red, InflationRate, EmployeeTreatmentQuality, InterestRates, VolatilityIndex, BullMarket);
+  graph = new Graph(100,100,700,550, scale);
+  tbows = new Bot(700, 600);
+  al = new Line(a);
 }
