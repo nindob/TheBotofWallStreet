@@ -31,5 +31,7 @@ class Stock{
   void updatePosition() {
     float f = this.frequency;
     float a = this.amplitude;
+
+    value = volatilityIndex + (a/f)*sin(inflationRates * employeeTreatmentQuality * interestRates * riskTolerance)+50;
   }
 }
