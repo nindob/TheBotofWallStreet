@@ -64,15 +64,15 @@ class Bot {
     want = true; 
     println("The investor wants to invest");
     fill(0);
-    textAlign(CENTER);
-    text("The red stock is a good investment", 700, 600);
+    textAlign(RIGHT);
+    text("This stock is a good investment", 730, 650);
    }
    else {
     want = false;
     println("the investor does not want to invest");
     fill(0);
-    textAlign(CENTER);
-    text("The red stock is a bad investment", 700, 600);
+    textAlign(RIGHT);
+    text("This stock is a bad investment", 730, 650);
    }
  }
 }

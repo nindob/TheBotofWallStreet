@@ -20,11 +20,15 @@ class Line {
   }
   
   void updateLine() {
+    this.lineCheck();
     for (PVector a : this.points) {
-      if (a.x < graph.x) {
-        points.remove(a.x);
-      }
       a.x -= graph.xsize/scale;
+    }
+  }
+  
+  void lineCheck() {
+    if (points.get(0).x < graph.x) {
+      points.remove(0);
     }
   }
   

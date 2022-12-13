@@ -20,14 +20,15 @@ class Graph {
   void drawAxis() {
     fill(0);
     stroke(0);
+    strokeWeight(1);
     line(this.xsize, this.y, this.xsize, this.ysize);
     line(this.lines.get(0).points.get(0).x, this.ysize, this.xsize, this.ysize);
     float yscale = (this.ysize-this.y)/10;
-    for (int i=0;i<10;i++) {
+    for (int i=0;i<=10;i++) {
       line(this.xsize, this.y+i*yscale, this.xsize+10, this.y+i*yscale);
       float l = this.maxValue-i*this.maxValue/10;
       textAlign(LEFT);
-      text(int(l), this.xsize+20, this.y+i*yscale);
+      text("$" + int(l) + ".00", this.xsize+20, this.y+i*yscale);
     }
   }
   

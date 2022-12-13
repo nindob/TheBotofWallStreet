@@ -1,6 +1,5 @@
 class Stock{
   float xSpeed, ySpeed;
-  float frequency, amplitude, period, periodQuarter;
   int strokeSize;
   color colour;
   float value;
@@ -15,10 +14,8 @@ class Stock{
   float currentPrice;
   boolean marketType;
   
-  Stock(float val, float frq, float amp, color col, float ifr, float etq, float inr, float vi, float rt) {
+  Stock(float val, color col, float ifr, float etq, float inr, float vi, float rt) {
     this.value = val;
-    this.frequency = frq;
-    this.amplitude = amp;
     this.colour = col;
     this.inflationRates = ifr;
     this.employeeTreatmentQuality = etq;
@@ -29,9 +26,11 @@ class Stock{
     // sin(value - inflationRates * 2 / 10 + employeeTreatmentQuality * interestRates);
   }
   void updatePosition() {
-    float f = this.frequency;
-    float a = this.amplitude;
+    float ifr = inflationRates + random(-1, 1);
+    float etq = employeeTreatmentQuality + random(-5, 5);
+    float ir = interestRates + random(-2, 2);
+    float rt = riskTolerance + random(-3, 3);
 
-    value = volatilityIndex + (a/f)*sin(inflationRates * employeeTreatmentQuality * interestRates * riskTolerance)+50;
+    value += volatilityIndex*(ifr+etq+ir+rt);
   }
 }
