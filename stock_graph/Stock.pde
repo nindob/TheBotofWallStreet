@@ -1,11 +1,25 @@
 class Stock{
   color colour;
   float value;
-  Stock (float a, color c) {
-    value = a;
-    colour = c;
+  
+  // factors that should change the stock graph
+  // can make GUI sliders and buttons for this
+  float inflationRates;
+  float interestRates;
+  float volatilityIndex;
+  float riskTolerance;
+  float employeeTreatmentQuality;
+  float currentPrice;
+  boolean marketType;
+  
+  Stock(float setValue, color setColor, float setInflationRates, float setEmployeeTreatmentQuality, float setInterestRates) {
+    value = setValue;
+    colour = setColor;
+    inflationRates = setInflationRates;
+    employeeTreatmentQuality = setEmployeeTreatmentQuality;
+    interestRates = setInterestRates;
   }
   void updateValue() {
-    value += random(-5, 5);
+    value = value - inflationRates * 2 / 10 + employeeTreatmentQuality * interestRates;
   }
 }
