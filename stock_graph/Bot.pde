@@ -34,11 +34,6 @@ class Bot {
  
  void checkRisk() {
    try {
-     //for(int i =0; i<5; i++) {
-     //   this.values[i] += random(-50,50);
-     //   slope = this.values[i+1] - this.values[i]/this.time[i+1] - this.values[i];
-     //   this.slopes[i] = slope; 
-     //}
      float total = 0;
      for(int i = 0; i<5; i++) {
        total += slopes[i];
@@ -68,10 +63,16 @@ class Bot {
    if(avgSlope > 0) {
     want = true; 
     println("The investor wants to invest");
+    fill(0);
+    textAlign(CENTER);
+    text("The red stock is a good investment", 700, 600);
    }
    else {
     want = false;
     println("the investor does not want to invest");
+    fill(0);
+    textAlign(CENTER);
+    text("The red stock is a bad investment", 700, 600);
    }
  }
 }

@@ -1,21 +1,22 @@
 class Line {
   ArrayList<PVector> points;
   Stock stock;
-  float maxValue;
   float scale;
   Graph graph;
   boolean drawn;
   
   Line (Stock e) {
     this.scale = 20;
-    this.maxValue = 100;
     this.stock = e;
     this.points = new ArrayList<PVector>();
     this.drawn = true;
   }
   
   void updateStock() {
-      this.points.add(new PVector(graph.xsize, graph.ysize-(this.stock.value*(this.graph.ysize/this.maxValue))));
+    if (this.stock.value > graph.maxValue) {
+      graph.maxValue = this.stock.value;
+    }
+      this.points.add(new PVector(graph.xsize, graph.ysize-(this.stock.value*((this.graph.ysize-this.graph.y)/graph.maxValue))));
   }
   
   void updateLine() {
